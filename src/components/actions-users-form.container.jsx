@@ -1,35 +1,52 @@
 import { Form } from "antd";
 import * as React from "react";
+import {
+  decreaseCurrent,
+  increaseCurrent,
+  setIsAction,
+  setIsUser,
+} from "../context/actions-users.actions";
+import {
+  useActionsUsersDispatch,
+  useActionsUsersSelect,
+} from "../context/actions-users.context";
 import { ActionsForm } from "./actions-form";
 import { UsersForm } from "./users-form";
 
-export const ActionsUsersFormContainer = ({
-  isActions,
-  isUsers,
-  setActionsStep,
-  setUsersStep,
-}) => {
+export const ActionsUsersFormContainer = () => {
   const [form] = Form.useForm();
+  const { isAction, isUser } = useActionsUsersSelect();
+  const dispatch = useActionsUsersDispatch();
+
+  const setActionsStep = () => {
+    dispatch(setIsAction());
+    dispatch(decreaseCurrent());
+  };
+
+  const setUsersStep = () => {
+    dispatch(setIsUser());
+    dispatch(increaseCurrent());
+  };
 
   const resetFormFieldByName = (fieldName) => {
     form.resetFields([fieldName]);
   };
 
   const handleFormFinish = (formName, info) => {
-    if (formName === "actionsForm") {
+    if (formName === "actionForm") {
       return setUsersStep();
     }
 
-    if (formName === "usersForm") {
+    if (formName === "userForm") {
       return console.log({ ...info });
     }
   };
 
   return (
     <Form.Provider onFormFinish={handleFormFinish}>
-      {isActions ? (
+      {isAction ? (
         <ActionsForm
-          formName="actionsForm"
+          formName="actionForm"
           formInstance={form}
           actionTypeLabel="Type"
           actionTypeOptions={[
@@ -43,9 +60,9 @@ export const ActionsUsersFormContainer = ({
           ]}
           onActionTypeChange={resetFormFieldByName}
         />
-      ) : isUsers ? (
+      ) : isUser ? (
         <UsersForm
-          formName="usersForm"
+          formName="userForm"
           formInstance={form}
           userGroupLabel="Group"
           onBackClick={setActionsStep}

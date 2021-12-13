@@ -4,6 +4,9 @@
   "description": "My webpack project",
   "main": "index.js",
   "scripts": {
+    "ci": "npm ci --only=production",
+    "ci:dev": "npm ci",
+    "ci:prod": "npm ci --only=production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
