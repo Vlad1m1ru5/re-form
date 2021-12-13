@@ -22,14 +22,14 @@ export const ActionsUsersContextProvider = ({ children }) => {
   );
 };
 
-export const useActionsUsersSelect = () => {
-  const select = React.useContext(StateActionsUsersContext);
-  if (select === undefined) {
+export const useActionsUsersState = () => {
+  const state = React.useContext(StateActionsUsersContext);
+  if (state === undefined) {
     throw new Error(
       "useActionsUsersSelect must be used within StepContextProvider"
     );
   }
-  return select;
+  return state;
 };
 
 export const useActionsUsersDispatch = () => {

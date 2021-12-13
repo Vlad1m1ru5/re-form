@@ -10,3 +10,7 @@
     margin: 16px 0;
     padding: 0 50px;
 }
+
+.ant-space.ant-space-vertical {
+    width: 100%;
+}

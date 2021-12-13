@@ -8,14 +8,14 @@ import {
 } from "../context/actions-users.actions";
 import {
   useActionsUsersDispatch,
-  useActionsUsersSelect,
+  useActionsUsersState,
 } from "../context/actions-users.context";
 import { ActionsForm } from "./actions-form";
 import { UsersForm } from "./users-form";
 
 export const ActionsUsersFormContainer = () => {
   const [form] = Form.useForm();
-  const { isAction, isUser } = useActionsUsersSelect();
+  const { isAction, isUser } = useActionsUsersState();
   const dispatch = useActionsUsersDispatch();
 
   const setActionsStep = () => {
