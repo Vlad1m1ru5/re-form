@@ -5,6 +5,8 @@ export const UsersForm = ({
   formName,
   formInstance,
   userGroupLabel,
+  submitLabel,
+  backLabel,
   onBackClick,
 }) => {
   return (
@@ -16,9 +18,9 @@ export const UsersForm = ({
       >
         <Input />
       </Form.Item>
-      <Button onClick={onBackClick}>Back</Button>
+      <Button onClick={onBackClick}>{backLabel}</Button>
       <Button type="primary" htmlType="submit">
-        Submit
+        {submitLabel}
       </Button>
     </Form>
   );

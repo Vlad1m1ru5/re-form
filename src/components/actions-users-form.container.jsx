@@ -58,6 +58,7 @@ export const ActionsUsersFormContainer = () => {
             { label: "1", value: "1" },
             { label: "2", value: "2" },
           ]}
+          submitLabel="Submit"
           onActionTypeChange={resetFormFieldByName}
         />
       ) : isUser ? (
@@ -65,6 +66,8 @@ export const ActionsUsersFormContainer = () => {
           formName="userForm"
           formInstance={form}
           userGroupLabel="Group"
+          submitLabel="Submit"
+          backLabel="Back"
           onBackClick={setActionsStep}
         />
       ) : null}

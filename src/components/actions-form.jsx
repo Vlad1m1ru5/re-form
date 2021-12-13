@@ -8,6 +8,7 @@ export const ActionsForm = ({
   actionTypeOptions,
   actionPayloadLabel,
   actionPayloadOptions,
+  submitLabel,
   onActionTypeChange,
 }) => {
   const handleActionTypeChange = () => {
@@ -31,7 +32,7 @@ export const ActionsForm = ({
         <Select options={actionPayloadOptions} />
       </Form.Item>
       <Button type="primary" htmlType="submit">
-        Submit
+        {submitLabel}
       </Button>
     </Form>
   );
