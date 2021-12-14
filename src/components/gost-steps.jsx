@@ -1,7 +1,7 @@
 import { Steps } from "antd";
 import * as React from "react";
 
-export const ActionsUsersSteps = ({ current = 0, steps = [] }) => {
+export const GostSteps = ({ current = 0, steps = [] }) => {
   return (
     <Steps current={current}>
       {steps.map((step, index) => (

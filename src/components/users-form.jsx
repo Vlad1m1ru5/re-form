@@ -1,4 +1,4 @@
-import { Button, Form, Input } from "antd";
+import { Button, Col, Form, Input, Row } from "antd";
 import * as React from "react";
 
 export const UsersForm = ({
@@ -18,10 +18,16 @@ export const UsersForm = ({
       >
         <Input />
       </Form.Item>
-      <Button onClick={onBackClick}>{backLabel}</Button>
-      <Button type="primary" htmlType="submit">
-        {submitLabel}
-      </Button>
+      <Row justify="end">
+        <Col>
+          <Button type="link" onClick={onBackClick}>
+            {backLabel}
+          </Button>
+          <Button type="primary" htmlType="submit">
+            {submitLabel}
+          </Button>
+        </Col>
+      </Row>
     </Form>
   );
 };

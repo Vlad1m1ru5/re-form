@@ -11,6 +11,8 @@ const stylesHandler = isProduction
   ? MiniCssExtractPlugin.loader
   : "style-loader";
 
+const devtool = isProduction ? false : "eval-source-map";
+
 const config = {
   entry: "./src/index.jsx",
   output: {
@@ -22,6 +24,7 @@ const config = {
       chunks: "all",
     },
   },
+  devtool,
   devServer: {
     open: true,
     host: "localhost",
